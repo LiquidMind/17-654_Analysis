@@ -31,6 +31,9 @@ public class ShapeClassifier {
 			evenOddGuess = "";
 
 
+		//System.err.println(shapeGuess);
+		//System.err.println(parameters.length);
+		
 		switch (parameters.length) {
 		case 1:
 			if (shapeGuess.equals("Line")) {
