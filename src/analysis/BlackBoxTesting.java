@@ -9,7 +9,7 @@ public class BlackBoxTesting {
     ShapeClassifier c = new ShapeClassifier();
     
     Assert.assertEquals("Yes", c.evaluateGuess("Line,Small,No,1"));
-    Assert.assertEquals("Yes", c.evaluateGuess("Circle,Large,Yes,16,16"));
+    Assert.assertEquals("Yes", c.evaluateGuess("Circle,Small,Yes,16,16"));
     Assert.assertEquals("Yes", c.evaluateGuess("Ellipse,Small,Yes,2,4"));
     Assert.assertEquals("Yes", c.evaluateGuess("Equilateral,Large,No,35,35,35"));
     Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Small,Yes,2,4,2"));

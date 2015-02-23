@@ -42,7 +42,7 @@ public class ShapeClassifier {
 			}
 			break; 
 		case 2: 
-			shapeGuessResult = classify2Parameters(parameters[1], parameters[1]);
+			shapeGuessResult = classify2Parameters(parameters[0], parameters[1]);
 			if (shapeGuessResult.equals("Ellipse")) {
 				calcPerim = calculateEllipsePerimeter(parameters[0],parameters[1]);
 			}
@@ -76,10 +76,10 @@ public class ShapeClassifier {
 
 		// check the size guess
 
-		if (calcPerim > 200 && sizeGuess.equals("Large")) {
+		if (calcPerim > 100 && sizeGuess.equals("Large")) {
 			isSizeGuessCorrect = true;
 		}
-		else if (calcPerim < 10 && sizeGuess.equals("Small")) {
+		else if (calcPerim <= 100 && sizeGuess.equals("Small")) {
 			isSizeGuessCorrect = true;	
 		}
 		else { 
@@ -102,10 +102,11 @@ public class ShapeClassifier {
 		}
 		else if (isShapeGuessCorrect) {
 			badGuesses=0;		
+			/*
 			String ans= "Yes: ";
 			boolean need_comma=false;
 
-			if (isSizeGuessCorrect) {
+			if (!isSizeGuessCorrect) {
 				ans = "Wrong Size";
 				need_comma=true;
 			}		
@@ -117,6 +118,8 @@ public class ShapeClassifier {
 				ans += "Wrong Even/Odd";
 			}	
 			return ans;
+			*/
+			return "No";
 		}
 		else {
 			// too many bad guesses
@@ -132,7 +135,7 @@ public class ShapeClassifier {
 
 	// P = 2 * PI *r
 	private int calculateCirclePerimeter(int r) {
-		return (int) (2 * Math.PI * r);
+		return (int) Math.floor(2 * Math.PI * r);
 	}
 
 	// P = 4 * s
