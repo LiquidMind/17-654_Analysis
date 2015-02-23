@@ -12,7 +12,7 @@ public class BlackBoxTesting {
     Assert.assertEquals("Yes", c.evaluateGuess("Circle,Small,Yes,16,16"));
     Assert.assertEquals("Yes", c.evaluateGuess("Ellipse,Small,Yes,2,4"));
     Assert.assertEquals("Yes", c.evaluateGuess("Equilateral,Large,No,35,35,35"));
-    Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Small,Yes,2,4,2"));
+    Assert.assertEquals("No", c.evaluateGuess("Isosceles,Small,Yes,2,4,2"));
     Assert.assertEquals("Yes", c.evaluateGuess("Scalene,Large,No,49,21,31"));
     Assert.assertEquals("Yes", c.evaluateGuess("Square,Small,Yes,2,2,2,2"));
     Assert.assertEquals("Yes", c.evaluateGuess("Rectangle,Large,No,23,29,23,29"));

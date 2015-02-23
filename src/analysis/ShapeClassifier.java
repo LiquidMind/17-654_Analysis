@@ -52,12 +52,12 @@ public class ShapeClassifier {
 			break;
 		case 3:
 			shapeGuessResult = classify3Parameters(parameters[0], parameters[1],parameters[2]);
-			calcPerim = calculateTrianglePerimeter(parameters[1], parameters[1],parameters[2]);
+			calcPerim = calculateTrianglePerimeter(parameters[0], parameters[1],parameters[2]);
 			break;
 		case 4:
 			shapeGuessResult = classify4Parameters(parameters[0], parameters[1],parameters[2], parameters[3]);
 			if (shapeGuessResult.equals("Rectangle")) {
-				calcPerim = calculateRectanglePerimeter(parameters[0], parameters[3],parameters[2], parameters[3]);
+				calcPerim = calculateRectanglePerimeter(parameters[0], parameters[1],parameters[2], parameters[3]);
 			}
 			else {
 				calcPerim = calculateRectanglePerimeter(parameters[0], parameters[1],parameters[2], parameters[3]);
@@ -145,6 +145,7 @@ public class ShapeClassifier {
 
 	// P = 2l + 2w)
 	private int calculateRectanglePerimeter(int side1, int side2, int side3, int side4) {
+	  /*
 		if (side1 == side2) {
 
 			return (2 * side1) + (2 * side3);
@@ -155,6 +156,8 @@ public class ShapeClassifier {
 		}
 
 		return 0;
+		*/
+	  return side1 + side2 + side3 + side4;
 	}
 
 	// P = a + b + c
@@ -221,10 +224,10 @@ public class ShapeClassifier {
 	private String classify4Parameters(int a, int b, int c, int d) {
 		if (a == b && c == d) {
 			if (a != c) {
-				return fourParamGuesses[1];
+				return fourParamGuesses[0];
 			}
 			else 
-				return fourParamGuesses[0];
+				return fourParamGuesses[1];
 		}		
 		else if (b == d && c == a) {
 			return fourParamGuesses[0];
