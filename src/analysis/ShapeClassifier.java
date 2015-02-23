@@ -175,7 +175,7 @@ public class ShapeClassifier {
 	// PI(3(a+b) - sqrt((3a+b)(a+3b))
 	private int calculateEllipsePerimeter(int a, int b) {
 		double da = a, db = b;
-		return (int) ((int) Math.PI * (3 * (da+db) - Math.sqrt((3*da+db)*(da+3*db)))); 
+		return (int) (Math.PI * (3 * (da+db) - Math.sqrt((3*da+db)*(da+3*db)))); 
 	}
 
 	// Transform a string argument into an array of numbers
@@ -218,7 +218,7 @@ public class ShapeClassifier {
 				return twoParamGuesses[1];
 			}
 		}
-		else if (a > 1) {
+		else if (a > 0) {
 			if (b != 0) {
 				return twoParamGuesses[1]; 
 			}
