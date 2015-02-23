@@ -10,9 +10,13 @@ public class ShapeClassifier {
 	public ShapeClassifier() {
 		badGuesses = 0;
 	}
+	
+	public String evaluateGuess(String object) {
+	  return evaluateGuess(object, false);
+	}
 
 	// return Yes if the guess is correct, No otherwise
-	public String evaluateGuess(String object) {
+	public String evaluateGuess(String object, boolean debug) {
 
 		String shapeGuessResult = "";
 		Integer[] parameters = getParams(object);
@@ -86,10 +90,15 @@ public class ShapeClassifier {
 			isSizeGuessCorrect = false;
 		}
 
-		if ( 0 == (calcPerim % 2) && evenOddGuess.equals("Yes")) {
+		int paramProduct = 1;
+		for (int i = 0; i < parameters.length; i++) {
+		  paramProduct *= parameters[i];
+		}
+		
+		if ( 0 == (paramProduct % 2) && evenOddGuess.equals("Yes")) {
 			isEvenOddCorrect = true;
 		}
-		else if ( 0 != (calcPerim % 2) && evenOddGuess.equals("No")) {
+		else if ( 0 != (paramProduct % 2) && evenOddGuess.equals("No")) {
 			isEvenOddCorrect = true;
 		}
 		else { 
@@ -100,9 +109,9 @@ public class ShapeClassifier {
 			badGuesses=0;
 			return "Yes";
 		}
+		/*
 		else if (isShapeGuessCorrect) {
 			badGuesses=0;		
-			/*
 			String ans= "Yes: ";
 			boolean need_comma=false;
 
@@ -118,16 +127,13 @@ public class ShapeClassifier {
 				ans += "Wrong Even/Odd";
 			}	
 			return ans;
-			*/
-			return "No";
-		}
+		}*/
 		else {
 			// too many bad guesses
 			badGuesses++;
-			if (badGuesses >= 3) {
+			if (badGuesses >= 3 && !debug) {
 				System.out.println("Bad guess limit Exceeded");
 				System.exit(1);
-
 			}
 			return "No";
 		}
