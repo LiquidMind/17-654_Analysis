@@ -87,7 +87,7 @@ public class BlackBoxTesting {
     Assert.assertEquals("Yes", c.evaluateGuess("Equilateral,Large,Yes,34,34,34", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Equilateral,Small,No,1,1,1", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Large,Yes,50,1,50", true));
-    Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Small,No,1,1,2", true));
+    Assert.assertEquals("No", c.evaluateGuess("Isosceles,Small,No,1,1,2", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Scalene,Large,Yes,3,48,50", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Scalene,Small,No,3,5,7", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Square,Large,Yes,26,26,26,26", true));
@@ -113,9 +113,9 @@ public class BlackBoxTesting {
     Assert.assertEquals("No", c.evaluateGuess("Line,Large,Yes,100", true));
     Assert.assertEquals("No", c.evaluateGuess("Line,Small,No,101", true));
     Assert.assertEquals("No", c.evaluateGuess("Circle,Large,No,15,15", true));
-    Assert.assertEquals("No", c.evaluateGuess("Circle,Small,Yes,16,16", true));
+    Assert.assertEquals("Yes", c.evaluateGuess("Circle,Small,Yes,16,16", true));
     Assert.assertEquals("No", c.evaluateGuess("Ellipse,Large,Yes,15,16", true));
-    Assert.assertEquals("No", c.evaluateGuess("Ellipse,Small,No,15,17", true));
+    Assert.assertEquals("Yes", c.evaluateGuess("Ellipse,Small,No,15,17", true));
     Assert.assertEquals("No", c.evaluateGuess("Equilateral,Large,Yes,32,32,32", true));
     Assert.assertEquals("No", c.evaluateGuess("Equilateral,Small,No,35,35,35", true));
     Assert.assertEquals("No", c.evaluateGuess("Isosceles,Large,Yes,34,32,34", true));
@@ -184,10 +184,10 @@ public class BlackBoxTesting {
     Assert.assertEquals("No", c.evaluateGuess("Isosceles,Small,No,3,3,7", true));
     Assert.assertEquals("No", c.evaluateGuess("Scalene,Large,No,47,53,1209", true));
     Assert.assertEquals("No", c.evaluateGuess("Scalene,Small,Yes,2,4,8", true));
-    Assert.assertEquals("Yes", c.evaluateGuess("Ellipse,Large,Yes,14,18", true));
+    Assert.assertEquals("No", c.evaluateGuess("Ellipse,Large,Yes,14,18", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Ellipse,Small,No,1,3", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Large,No,49,3,49", true));
-    Assert.assertEquals("Yes", c.evaluateGuess("Isosceles,Small,Yes,2,4,2", true));
+    Assert.assertEquals("No", c.evaluateGuess("Isosceles,Small,Yes,2,4,2", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Rectangle,Large,Yes,1,50,1,50", true));
     Assert.assertEquals("Yes", c.evaluateGuess("Rectangle,Small,No,1,3,1,3", true));
  }
